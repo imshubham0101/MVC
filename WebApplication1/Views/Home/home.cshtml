@@ -1,0 +1,42 @@
+﻿
+@model IEnumerable<WebApplication1.Models.Employee>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>myEmps</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="table-responsive">
+        <table class="table">
+            <hr />
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Address</th>
+            </tr>
+            @foreach (var emp in Model)
+            {
+                <tr>
+                    <td>
+                        @emp.Id
+                    </td>
+                    <td>
+                        @emp.Name
+                    </td>
+                    <td>
+                        @emp.Address
+                    </td>
+                    <td><a href="Home/Edit/@emp.Id">Edit</a></td>
+                    <td><a href="Home/Delete/@emp.Id">DELETE</a></td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

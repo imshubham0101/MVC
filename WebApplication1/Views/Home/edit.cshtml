@@ -1,0 +1,40 @@
+﻿
+@model WebApplication1.Models.Employee
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>edit</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <form action="/Home/AfterEdit" method="post">
+    <div class="table-responsive">
+        <table clss="table">
+            <tr>
+                <td> No </td>
+                <td><input type="text" readonly name="no" value="@Model.Id" /></td>
+                </tr>
+            <tr>
+                <td> Name </td>
+                <td><input type="text"  name="name" value="@Model.Name" /></td>
+            </tr>
+            <tr>
+                <td> Address </td>
+                <td><input type="text" name="name" value="@Model.Address" /></td>
+            </tr>
+            <tr>
+                <td colspan="3"><input class="btn btn-primary" type="submit" name="btnSubmit" value="Update" /></td>
+            </tr>
+            
+        </table>
+
+    </div>
+    </form>
+   
+</body>
+</html>
