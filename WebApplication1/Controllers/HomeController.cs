@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication1.Filter;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
@@ -11,10 +12,10 @@ namespace WebApplication1.Controllers
     {
         DbEntities mydb = new DbEntities();
 
-
-        public ActionResult Home()
+        [SBfilter]
+        public ActionResult Index()
         {
-            return View("home", mydb.Employees.ToList());
+            return View("index", mydb.Employees.ToList());
         }
 
        public ActionResult Edit(int id)
@@ -27,8 +28,29 @@ namespace WebApplication1.Controllers
             Employee oldEmp = mydb.Employees.Find(emp.Id);
             oldEmp.Name = emp.Name;
             oldEmp.Address = emp.Address;
-            return View("Home");
+            mydb.SaveChanges();
+            return Redirect("/Home/Index");
 
+        }
+
+        public ActionResult Delete(int id)
+        {
+            Employee emp = mydb.Employees.Find(id);
+            mydb.Employees.Remove(emp);
+            mydb.SaveChanges();
+            return Redirect("/Home/Index");
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        public ActionResult AfterCreate(Employee emp)
+        {
+            mydb.Employees.Add(emp);
+            mydb.SaveChanges();
+            return Redirect("/Home/Index");
         }
 
     }

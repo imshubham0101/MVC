@@ -160,9 +160,11 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Filter\SBfilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\Logger.cs" />
     <Compile Include="Models\Employee.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -197,9 +199,10 @@
       <DependentUpon>Employee.edmx</DependentUpon>
     </Content>
     <Content Include="Views\Home\MyView.cshtml" />
-    <Content Include="Views\Home\home.cshtml" />
+    <Content Include="Views\Home\index.cshtml" />
     <Content Include="Views\Home\edit.cshtml" />
     <Content Include="scripts\jquery-1.9.1.min.map" />
+    <Content Include="Views\Home\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
